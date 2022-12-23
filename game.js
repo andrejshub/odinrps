@@ -11,4 +11,43 @@ function getComputerChoice() {
     }
 }
 
-console.log(getComputerChoice());
+function playRound(computerSelection, playerSelection) {
+    
+    let computerCase = computerSelection.toUpperCase();
+    let playerCase = playerSelection.toUpperCase();
+
+    
+
+    if(computerCase === 'ROCK' && playerCase === 'Scissors') {
+        return output = "You lose! Rock beats scissors";
+    } else if (playerCase === 'ROCK' && computerCase === 'SCISSORS') {
+        return output = 'You win! Rock beats Scissors';
+    } else if (playerCase === 'ROCK' && computerCase === 'PAPER') {
+        return 'You lose! Paper covers rock!'
+    } else if (playerCase === 'PAPER' && computerCase === 'ROCK') {
+        return 'You win! Paper covers rock!'
+    }  else if (playerCase === 'SCISSORS' && computerCase === 'PAPER') {
+        return 'You win! Scissors cuts Paper!'
+    }  else if (playerCase === 'PAPER' && computerCase === 'SCISSORS') {
+        return 'You lose! Scissor cuts Paper!'
+    }  else if (playerCase === 'ROCK' && computerCase === 'ROCK') {
+        return 'You tied! You both picked Rock!'
+    }   else if (playerCase === 'SCISSORS' && computerCase === 'SCISSORS') {
+        return 'You tied! You both picked Scissors!'
+    }  else if (playerCase === 'PAPER' && computerCase === 'PAPER') {
+        return 'You tied! You both picked Paper!'
+    }
+
+    
+}
+
+function game (){
+    for (let i = 0; i < 5; i++){
+        const computerSelection = getComputerChoice();
+        let playerSelection = prompt('Please choose either rock, paper, or scissors.');
+        return playRound(computerSelection, playerSelection);
+    }
+
+}
+
+console.log(game());

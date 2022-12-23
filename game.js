@@ -11,24 +11,33 @@ function getComputerChoice() {
     }
 }
 
+let computerScore = 0;
+let playerScore = 0;
+
 function playRound(computerSelection, playerSelection) {
     
     let computerCase = computerSelection.toUpperCase();
     let playerCase = playerSelection.toUpperCase();
-
+    
     
 
     if(computerCase === 'ROCK' && playerCase === 'Scissors') {
-        return output = "You lose! Rock beats scissors";
+        computerScore++;
+        return output = "You lose! Rock beats scissors"; 
     } else if (playerCase === 'ROCK' && computerCase === 'SCISSORS') {
+        playerScore++;
         return output = 'You win! Rock beats Scissors';
     } else if (playerCase === 'ROCK' && computerCase === 'PAPER') {
+        computerScore++;
         return 'You lose! Paper covers rock!'
     } else if (playerCase === 'PAPER' && computerCase === 'ROCK') {
+        playerScore++;
         return 'You win! Paper covers rock!'
     }  else if (playerCase === 'SCISSORS' && computerCase === 'PAPER') {
+        playerScore++;
         return 'You win! Scissors cuts Paper!'
     }  else if (playerCase === 'PAPER' && computerCase === 'SCISSORS') {
+        computerScore++;
         return 'You lose! Scissor cuts Paper!'
     }  else if (playerCase === 'ROCK' && computerCase === 'ROCK') {
         return 'You tied! You both picked Rock!'
@@ -41,13 +50,19 @@ function playRound(computerSelection, playerSelection) {
     
 }
 
-function game (){
-    for (let i = 0; i < 5; i++){
+function game(){
+    for (var i = 0; i < 5; i++){
         const computerSelection = getComputerChoice();
         let playerSelection = prompt('Please choose either rock, paper, or scissors.');
-        return playRound(computerSelection, playerSelection);
+        console.log (playRound(computerSelection, playerSelection));
     }
-
+    if (computerScore > playerScore){
+        return 'Computer wins the game!';
+    } else if (computerScore < playerScore) {
+        return 'You win the game!';
+    } else if ( computerScore === playerScore) {
+        return 'You tied! Nobody wins the game!';
+    }
 }
 
 console.log(game());
